@@ -2,7 +2,7 @@ body {
   background-color: aliceblue;
 }
 
-.weather-info h1 {
+h1 {
   color: #272142;
   font-size: 38px;
   font-weight: 700;
