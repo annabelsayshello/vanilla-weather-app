@@ -15,8 +15,18 @@ li {
   list-style: none;
 }
 
+strong {
+  color: #f68111;
+}
+
 ul {
   padding-left: 0px;
+}
+
+.last-updated {
+  text-align: right;
+  color: darkgray;
+  margin-bottom: 0px;
 }
 
 .app {
@@ -24,9 +34,20 @@ ul {
   max-width: 700px;
 }
 
+.btn-primary {
+  background-color: #67bae1;
+  border-color: #67bae1;
+}
+
 .container {
   background: white;
+  border-radius: 10px;
   padding: 60px 60px;
+}
+
+.current-weather-icon {
+  height: 96px;
+  width: 96px;
 }
 
 .temperature {
