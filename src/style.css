@@ -15,6 +15,10 @@ li {
   list-style: none;
 }
 
+li::first-letter {
+  text-transform: capitalize;
+}
+
 strong {
   color: #f68111;
 }
@@ -31,7 +35,7 @@ ul {
 
 .app {
   margin: 60px auto;
-  max-width: 700px;
+  max-width: 750px;
 }
 
 .btn-primary {
