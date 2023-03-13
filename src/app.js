@@ -10,8 +10,6 @@ function displayWeather(response) {
   descriptionElement.innerHTML = response.data.condition.description;
   humidityElement.innerHTML = response.data.temperature.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
-
-  console.log(response);
 }
 
 let city = "Manila";
