@@ -23,6 +23,9 @@ function displayWeather(response) {
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
   let dateElement = document.querySelector("#date");
+  let currentWeatherIconElement = document.querySelector(
+    "#current-weather-icon"
+  );
 
   temperatureElement.innerHTML = Math.round(response.data.temperature.current);
   cityElement.innerHTML = response.data.city;
@@ -30,9 +33,17 @@ function displayWeather(response) {
   humidityElement.innerHTML = response.data.temperature.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
   dateElement.innerHTML = formatDate(response.data.time * 1000);
+  currentWeatherIconElement.setAttribute(
+    "src",
+    `images/${response.data.condition.icon}.png`
+  );
 }
 
-let city = "Mexico City";
+// Search input
+
+let city = "New Delhi";
+
+// Get weather data
 
 let apiKey = "8a3o3fb9f840a70faae5bc4dtec4f7b2";
 let apiURL = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
