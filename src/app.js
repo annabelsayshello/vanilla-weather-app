@@ -39,9 +39,15 @@ function displayWeather(response) {
   );
 }
 
-// Search input
+function searchCity(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-search");
+  let apiURL = `https://api.shecodes.io/weather/v1/current?query=${cityInputElement.value}&key=${apiKey}`;
 
-let city = "New Delhi";
+  axios.get(apiURL).then(displayWeather);
+}
+
+let city = "London";
 
 // Get weather data
 
@@ -49,3 +55,8 @@ let apiKey = "8a3o3fb9f840a70faae5bc4dtec4f7b2";
 let apiURL = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
 
 axios.get(apiURL).then(displayWeather);
+
+// Search input
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", searchCity);
