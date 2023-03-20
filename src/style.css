@@ -72,6 +72,11 @@ ul {
   width: 96px;
 }
 
+.forecast-weather-icon {
+  height: 46px;
+  width: 46px;
+}
+
 #temperature {
   color: #212121;
   font-size: 80px;
