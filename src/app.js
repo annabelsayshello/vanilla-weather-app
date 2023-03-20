@@ -17,6 +17,9 @@ function formatDate(timestamp) {
 }
 
 function displayWeather(response) {
+  fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
+
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
   let descriptionElement = document.querySelector("#description");
@@ -66,7 +69,6 @@ function displayCelsiusTemperature(event) {
 }
 
 let celsiusTemperature = null;
-
 let city = "London";
 
 // Get weather data
