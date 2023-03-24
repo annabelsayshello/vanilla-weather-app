@@ -16,6 +16,31 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  let days = ["Sat", "Sun", "Mon", "Tues", "Weds", "Thurs"];
+
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+          <div class="col-2">
+            <div class="forecast-date">${day}</div>
+              <img
+                  src="images/few-clouds-day.png" class="forecast-weather-icon"/>
+              <div class="forecast-temperatures">
+                <span class="forecast-temperature-max">12°</span
+                > <span class="forecast-temperature-min">6°</span>
+              </div>
+          </div>
+  `;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function displayWeather(response) {
   fahrenheitLink.classList.remove("active");
   celsiusLink.classList.add("active");
@@ -70,6 +95,7 @@ function displayCelsiusTemperature(event) {
 
 let celsiusTemperature = null;
 let city = "London";
+displayForecast();
 
 // Get weather data
 
