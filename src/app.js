@@ -16,20 +16,28 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
-function displayForecast() {
+function getForecast(coordinates) {
+  let apiKey = "8a3o3fb9f840a70faae5bc4dtec4f7b2";
+  let apiURL = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}`;
+  axios.get(apiURL).then(displayForecast);
+}
+
+function displayForecast(response) {
+  console.log(response.data.daily);
+
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
-  let days = ["Sat", "Sun", "Mon", "Tues", "Weds", "Thurs"];
+  let days = ["Sat", "Sun", "Mon", "Tues"];
 
   days.forEach(function (day) {
     forecastHTML =
       forecastHTML +
       `
-          <div class="col-2">
+          <div class="col-3">
             <div class="forecast-date">${day}</div>
               <img
-                  src="images/few-clouds-day.png" class="forecast-weather-icon"/>
+                  src="images/few-clouds-day.png" width=72px/>
               <div class="forecast-temperatures">
                 <span class="forecast-temperature-max">12°</span
                 > <span class="forecast-temperature-min">6°</span>
@@ -66,6 +74,8 @@ function displayWeather(response) {
     "src",
     `images/${response.data.condition.icon}.png`
   );
+
+  getForecast(response.data.coordinates);
 }
 
 function searchCity(event) {
@@ -95,7 +105,6 @@ function displayCelsiusTemperature(event) {
 
 let celsiusTemperature = null;
 let city = "London";
-displayForecast();
 
 // Get weather data
 
