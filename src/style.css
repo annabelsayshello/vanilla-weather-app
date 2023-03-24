@@ -72,6 +72,10 @@ ul {
   width: 104px;
 }
 
+.forecast-temperatures {
+  margin-top: 4px;
+}
+
 #temperature {
   color: #212121;
   font-size: 80px;
