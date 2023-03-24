@@ -35,9 +35,9 @@ function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
-  forecast.slice(1, 5).forEach(function (forecastDay) {
+  forecast.slice(0, 6).forEach(function (forecastDay) {
     forecastHTML += `
-          <div class="col-3">
+          <div class="col-2">
             <div class="forecast-date">${formatDay(
               forecastDay.time * 1000
             )}</div>
